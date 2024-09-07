@@ -20,7 +20,7 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
       headers: {
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors'
+      // mode: 'no-cors'
     })
     .then(response => response.text())
     .then(data => {
@@ -35,7 +35,7 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxLeQ_Ypyo5OkWFWJzn0W09T96UfHAo8Z9jl3lFGRVGsM55_oNmj8WXbhf4oNUFFFHE/exec'; // Mismo URL del script
   
     fetch(scriptURL, {
-      mode: 'no-cors',
+      // mode: 'no-cors',
     })
       .then(response => response.json())
       .then(data => {
