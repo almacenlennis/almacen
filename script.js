@@ -12,7 +12,7 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
     };
     
     // Reemplaza esta URL con la URL de tu Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz626uyMkMAVOVYV6koDN56mtP4tzD-26PnvBXGle0fr41Z_cVipyHvEW7po1HElGnC/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwVLjywLwugGUr4X75Lr7q1n_F6xKRcl0ChMN26zc1S2yGa_l172AVeiAEPo9-jBv6v/exec';
   
     fetch(scriptURL, {
       method: 'POST',
@@ -23,14 +23,14 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
     })
     .then(response => response.text())
     .then(data => {
-      alert(data); // Mensaje de éxito
+      alert(data); // Mensaje de Ã©xito
       obtenerDatos();
     })
     .catch(error => console.error('Error al enviar los datos:', error));
   });
   
   function obtenerDatos() {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz626uyMkMAVOVYV6koDN56mtP4tzD-26PnvBXGle0fr41Z_cVipyHvEW7po1HElGnC/exec'; // Mismo URL del script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwVLjywLwugGUr4X75Lr7q1n_F6xKRcl0ChMN26zc1S2yGa_l172AVeiAEPo9-jBv6v/exec'; // Mismo URL del script
   
     fetch(scriptURL)
       .then(response => response.json())
