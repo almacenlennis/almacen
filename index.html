@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario con Google Sheets</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Enviar datos a Google Sheets</h1>
+  <form id="dataForm">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" required>
+    
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" required></textarea>
+    
+    <button type="submit">Enviar</button>
+  </form>
+
+  <h2>Datos Guardados:</h2>
+  <ul id="savedData"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
