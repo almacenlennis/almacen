@@ -19,7 +19,8 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      mode: 'no-cors'
     })
     .then(response => response.text())
     .then(data => {
@@ -32,7 +33,9 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
   function obtenerDatos() {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwVLjywLwugGUr4X75Lr7q1n_F6xKRcl0ChMN26zc1S2yGa_l172AVeiAEPo9-jBv6v/exec'; // Mismo URL del script
   
-    fetch(scriptURL)
+    fetch(scriptURL, {
+      mode: 'no-cors',
+    })
       .then(response => response.json())
       .then(data => {
         const lista = document.getElementById('savedData');
