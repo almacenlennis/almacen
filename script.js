@@ -12,7 +12,7 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
     };
     
     // Reemplaza esta URL con la URL de tu Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwJu3NyN73E8gzUev2F1BK4YGZ3X6w2kgd1pwBY_2gty0-FbiHxxVczp_ldcDcn5C_L/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz1e2m3eGsxpSKQMYZlkBOnaAr5jxC81Fdp4u4doLGRhrdVmbyz8O0GbY9RXPQaWGn1/exec';
   
     fetch(scriptURL, {
       method: 'POST',
@@ -32,7 +32,7 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
   
 
   function obtenerDatos() {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwJu3NyN73E8gzUev2F1BK4YGZ3X6w2kgd1pwBY_2gty0-FbiHxxVczp_ldcDcn5C_L/exec'; // Mismo URL del script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz1e2m3eGsxpSKQMYZlkBOnaAr5jxC81Fdp4u4doLGRhrdVmbyz8O0GbY9RXPQaWGn1/exec'; // Mismo URL del script
   
     fetch(scriptURL, {
       // mode: 'no-cors',
