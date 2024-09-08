@@ -6,7 +6,165 @@
     <title>Almacén Lennis</title>
     <style>
         body {
+            font-family: Arial, sans-serif;<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almacén Lennis</title>
+    <style>
+        body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .intro {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            margin: 15px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            max-width: 100%;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        .product p {
+            color: #777;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Almacén Lennis</h1>
+    </header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="container">
+        <section id="inicio" class="intro">
+            <h2>Bienvenidos a nuestro almacén</h2>
+            <p>Ofrecemos una gran variedad de productos de calidad a precios accesibles.</p>
+        </section>
+        <section id="nosotros" class="intro">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos un pequeño negocio local comprometido con la satisfacción de nuestros clientes. Visítanos para encontrar todo lo que necesitas en un solo lugar.</p>
+        </section>
+        <section id="productos" class="products">
+            <h2>Nuestros Productos</h2>
+            <a id="ver_productos" ></a>
+        </section>
+        <section id="contacto" class="intro">
+            <h2>Contacto</h2>
+            <p>Puedes encontrarnos en nuestra dirección física o contactarnos a través de nuestras redes sociales y número de teléfono.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Almacén Lennis. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+
+        function obtenerDatos() {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzEMedn45_uTggdrTzp0XuETbuFIW3SraHt73BQZUpNV7pMmTlunEoXRPgsgJagr7Qe/exec';
+        
+        fetch(scriptURL)
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                const productos = data;
+
+                const productosContainer = document.getElementById('productos');
+                
+                
+                // Recorre el array y genera el HTML dinámicamente
+                productos.forEach(producto => {
+                    const productDiv = document.getElementById('ver_productos');
+                    productDiv.classList.add('product');
+                    
+                    // Genera el contenido del producto
+                    const productHTML = `
+                        <h3>${producto[1]}</h3>
+                        <p>Precio: $${producto[2] == 'S' ? producto[4] + '<strong> ->Promo: ' + producto[5] +' llevando +2</strong>': producto[4]}</p>
+                    `;
+                    
+                    // Inserta el contenido en el div
+                    productDiv.innerHTML = productHTML;
+
+                    // Añade el div al contenedor
+                    productosContainer.appendChild(productDiv);
+                });
+            })
+            .catch(error => console.error('Error al obtener los datos:', error));
+        }
+        
+        // Cargar los datos al inicio
+        obtenerDatos();
+    </script>
+</body>
+</html>
+
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
