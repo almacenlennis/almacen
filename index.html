@@ -139,15 +139,30 @@
             return response.json();
             })
             .then(data => {
-            console.log(data);
-            const lista = document.getElementById('savedData');
-            lista.innerHTML = ''; // Limpiar lista antes de agregar nuevos datos
-            
-            data.forEach(row => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `Nombre: ${row[0]}, Correo: ${row[1]}, Mensaje: ${row[2]}`;
-                lista.appendChild(listItem);
-            });
+                console.log(data);
+                const productos = data;
+
+                const productosContainer = document.getElementById('productos');
+                productosContainer.innerHTML = ''; // Limpiar lista antes de agregar nuevos datos
+                
+                // Recorre el array y genera el HTML dinámicamente
+                productos.forEach(producto => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    
+                    // Genera el contenido del producto
+                    const productHTML = `
+                        <img src="producto${producto.Id}.jpg" alt="${producto.Nombre}">
+                        <h3>${producto.Nombre}</h3>
+                        <p>Precio: $${producto.Promocion ? producto.PrecioPromo : producto.PrecioVenta}</p>
+                    `;
+                    
+                    // Inserta el contenido en el div
+                    productDiv.innerHTML = productHTML;
+
+                    // Añade el div al contenedor
+                    productosContainer.appendChild(productDiv);
+                });
             })
             .catch(error => console.error('Error al obtener los datos:', error));
         }
