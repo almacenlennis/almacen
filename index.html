@@ -38,10 +38,10 @@
         mensaje: mensaje
       };
       
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyNcJMstiieqwDFhc2emTJ-2yYQxRa3xtECnwXBiLQOSGrj2iOT_7uSZvAHpWG9_Xsm/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ4B4-lCEDrmrV4uX8hrQxqquTYbImRVsqsPdqQbsgjTuEL3NjllZO6Pl4YWA1OPiM/exec';
     
       fetch(scriptURL, {
-        method: 'POST',
+        method: 'GET',
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json'
@@ -61,7 +61,7 @@
     });
     
     function obtenerDatos() {
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyNcJMstiieqwDFhc2emTJ-2yYQxRa3xtECnwXBiLQOSGrj2iOT_7uSZvAHpWG9_Xsm/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ4B4-lCEDrmrV4uX8hrQxqquTYbImRVsqsPdqQbsgjTuEL3NjllZO6Pl4YWA1OPiM/exec';
     
       fetch(scriptURL)
         .then(response => {
