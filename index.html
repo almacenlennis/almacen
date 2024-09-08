@@ -141,9 +141,15 @@
                         <h3>${producto[1]}</h3>
                         <p>Precio: $${producto[4]}</p>
                     `;
-                    
+
                     // Inserta el contenido en el div
                     productDiv.innerHTML = productHTML;
+
+                    if(producto[2] == 'S' || producto[2] == ''){
+                        productDiv.innerHTML = '<p>Promocion: $${producto[5]} llevando +2</p>';
+                    }
+                    
+                    
 
                     // Añade el div al contenedor
                     productosContainer.appendChild(productDiv);
