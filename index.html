@@ -101,11 +101,11 @@
         </section>
         <section id="productos" class="products">
             <h2>Nuestros Productos</h2>
-        
+            <p></p>
         </section>
         <section id="contacto" class="intro">
             <h2>Contacto</h2>
-            <p>Puedes encontrarnos en nuestra dirección física o contactarnos a través de nuestras redes sociales y número de teléfono.</p>
+            <p id="ver_productos">Puedes encontrarnos en nuestra dirección física o contactarnos a través de nuestras redes sociales y número de teléfono.</p>
         </section>
     </div>
     <footer>
@@ -132,7 +132,7 @@
                 
                 // Recorre el array y genera el HTML dinámicamente
                 productos.forEach(producto => {
-                    const productDiv = document.createElement('div');
+                    const productDiv = document.getElementById('ver_productos');
                     productDiv.classList.add('product');
                     
                     // Genera el contenido del producto
