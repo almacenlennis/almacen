@@ -132,7 +132,8 @@
                 
                 // Recorre el array y genera el HTML dinámicamente
                 productos.forEach(producto => {
-                    const productDiv = document.getElementById('ver_productos');
+                    const productDiv = document.createElement('div');
+                    
                     productDiv.classList.add('product');
                     
                     // Genera el contenido del producto
