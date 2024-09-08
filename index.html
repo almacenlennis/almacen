@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almacén El Buen Vecino</title>
+    <title>Almacén Lennis</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,7 +82,7 @@
 </head>
 <body>
     <header>
-        <h1>Almacén El Buen Vecino</h1>
+        <h1>Almacén Lennis</h1>
     </header>
     <nav>
         <a href="#inicio">Inicio</a>
@@ -100,7 +100,7 @@
             <p>Somos un pequeño negocio local comprometido con la satisfacción de nuestros clientes. Visítanos para encontrar todo lo que necesitas en un solo lugar.</p>
         </section>
         <section id="productos" class="products">
-            
+            <h2>Nuestros Productos</h2>
         
         </section>
         <section id="contacto" class="intro">
@@ -109,7 +109,7 @@
         </section>
     </div>
     <footer>
-        <p>&copy; 2024 Almacén El Buen Vecino. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Almacén Lennis. Todos los derechos reservados.</p>
     </footer>
     <script>
 
@@ -128,7 +128,7 @@
                 const productos = data;
 
                 const productosContainer = document.getElementById('productos');
-                productosContainer.innerHTML = '<h2>Nuestros Productos</h2>'; // Limpiar lista antes de agregar nuevos datos
+                
                 
                 // Recorre el array y genera el HTML dinámicamente
                 productos.forEach(producto => {
@@ -139,7 +139,7 @@
                     const productHTML = `
                         <img src="producto${producto[0]}.jpg" alt="${producto[1]}">
                         <h3>${producto[1]}</h3>
-                        <p>Precio: $${producto[2] == 'S' ? producto[5] : producto[4]}</p>
+                        <p>Precio: $${producto[2] == 'S' ? '<s>' + producto[4] + '</s> <strong>Promo:' + producto[5] +'</strong>': producto[4]}</p>
                     `;
                     
                     // Inserta el contenido en el div
