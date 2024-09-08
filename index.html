@@ -100,23 +100,8 @@
             <p>Somos un pequeño negocio local comprometido con la satisfacción de nuestros clientes. Visítanos para encontrar todo lo que necesitas en un solo lugar.</p>
         </section>
         <section id="productos" class="products">
-            <h2>Nuestros Productos</h2>
-            <div class="product">
-                <img src="producto1.jpg" alt="Producto 1">
-                <h3>Producto 1</h3>
-                <p>Descripción breve del producto 1.</p>
-            </div>
-            <div class="product">
-                <img src="producto2.jpg" alt="Producto 2">
-                <h3>Producto 2</h3>
-                <p>Descripción breve del producto 2.</p>
-            </div>
-            <div class="product">
-                <img src="producto3.jpg" alt="Producto 3">
-                <h3>Producto 3</h3>
-                <p>Descripción breve del producto 3.</p>
-            </div>
-            <!-- Añade más productos aquí -->
+            
+        
         </section>
         <section id="contacto" class="intro">
             <h2>Contacto</h2>
@@ -143,7 +128,7 @@
                 const productos = data;
 
                 const productosContainer = document.getElementById('productos');
-                productosContainer.innerHTML = ''; // Limpiar lista antes de agregar nuevos datos
+                productosContainer.innerHTML = '<h2>Nuestros Productos</h2>'; // Limpiar lista antes de agregar nuevos datos
                 
                 // Recorre el array y genera el HTML dinámicamente
                 productos.forEach(producto => {
