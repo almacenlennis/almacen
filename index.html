@@ -1,90 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario con Google Sheets</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almacén El Buen Vecino</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .intro {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            margin: 15px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            max-width: 100%;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        .product p {
+            color: #777;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Enviar datos a Google Sheets</h1>
-  <form id="dataForm">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
-    
-    <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo" required>
-    
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="mensaje" required></textarea>
-    
-    <button type="submit">Enviar</button>
-  </form>
+    <header>
+        <h1>Almacén El Buen Vecino</h1>
+    </header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="container">
+        <section id="inicio" class="intro">
+            <h2>Bienvenidos a nuestro almacén</h2>
+            <p>Ofrecemos una gran variedad de productos de calidad a precios accesibles.</p>
+        </section>
+        <section id="nosotros" class="intro">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos un pequeño negocio local comprometido con la satisfacción de nuestros clientes. Visítanos para encontrar todo lo que necesitas en un solo lugar.</p>
+        </section>
+        <section id="productos" class="products">
+            <h2>Nuestros Productos</h2>
+            <div class="product">
+                <img src="producto1.jpg" alt="Producto 1">
+                <h3>Producto 1</h3>
+                <p>Descripción breve del producto 1.</p>
+            </div>
+            <div class="product">
+                <img src="producto2.jpg" alt="Producto 2">
+                <h3>Producto 2</h3>
+                <p>Descripción breve del producto 2.</p>
+            </div>
+            <div class="product">
+                <img src="producto3.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p>Descripción breve del producto 3.</p>
+            </div>
+            <!-- Añade más productos aquí -->
+        </section>
+        <section id="contacto" class="intro">
+            <h2>Contacto</h2>
+            <p>Puedes encontrarnos en nuestra dirección física o contactarnos a través de nuestras redes sociales y número de teléfono.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Almacén El Buen Vecino. Todos los derechos reservados.</p>
+    </footer>
+    <script>
 
-  <h2>Datos Guardados:</h2>
-  <ul id="savedData"></ul>
-
-  <script>
-    document.getElementById('dataForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const nombre = document.getElementById('nombre').value;
-      const correo = document.getElementById('correo').value;
-      const mensaje = document.getElementById('mensaje').value;
-      
-      const data = {
-        nombre: nombre,
-        correo: correo,
-        mensaje: mensaje
-      };
-      
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzEMedn45_uTggdrTzp0XuETbuFIW3SraHt73BQZUpNV7pMmTlunEoXRPgsgJagr7Qe/exec';
-    
-      fetch(scriptURL, {
-        method: 'GET',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
+        function obtenerDatos() {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz1e2m3eGsxpSKQMYZlkBOnaAr5jxC81Fdp4u4doLGRhrdVmbyz8O0GbY9RXPQaWGn1/exec';
+        
+        fetch(scriptURL)
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+            })
+            .then(data => {
+            console.log(data);
+            const lista = document.getElementById('savedData');
+            lista.innerHTML = ''; // Limpiar lista antes de agregar nuevos datos
+            
+            data.forEach(row => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Nombre: ${row[0]}, Correo: ${row[1]}, Mensaje: ${row[2]}`;
+                lista.appendChild(listItem);
+            });
+            })
+            .catch(error => console.error('Error al obtener los datos:', error));
         }
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(data => {
-        alert(data); // Mensaje de éxito
+        
+        // Cargar los datos al inicio
         obtenerDatos();
-      })
-      .catch(error => console.error('Error al enviar los datos:', error));
-    });
-    
-    function obtenerDatos() {
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzEMedn45_uTggdrTzp0XuETbuFIW3SraHt73BQZUpNV7pMmTlunEoXRPgsgJagr7Qe/exec';
-    
-      fetch(scriptURL)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          const lista = document.getElementById('savedData');
-          lista.innerHTML = ''; // Limpiar lista antes de agregar nuevos datos
-          
-          data.forEach(row => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Nombre: ${row[0]}, Correo: ${row[1]}, Mensaje: ${row[2]}`;
-            lista.appendChild(listItem);
-          });
-        })
-        .catch(error => console.error('Error al obtener los datos:', error));
-    }
-    
-    // Cargar los datos al inicio
-    obtenerDatos();
-  </script>
+    </script>
 </body>
 </html>
