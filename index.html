@@ -152,9 +152,9 @@
                     
                     // Genera el contenido del producto
                     const productHTML = `
-                        <img src="producto${producto.Id}.jpg" alt="${producto.Nombre}">
-                        <h3>${producto.Nombre}</h3>
-                        <p>Precio: $${producto.Promocion ? producto.PrecioPromo : producto.PrecioVenta}</p>
+                        <img src="producto${producto[0]}.jpg" alt="${producto[1]}">
+                        <h3>${producto[1]}</h3>
+                        <p>Precio: $${producto[3] ? producto[5] : producto[4]}</p>
                     `;
                     
                     // Inserta el contenido en el div
