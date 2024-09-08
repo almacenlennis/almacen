@@ -139,7 +139,7 @@
                     const productHTML = `
                         <img src="producto${producto[0]}.jpg" alt="${producto[1]}">
                         <h3>${producto[1]}</h3>
-                        <p>Precio: $${producto[2] ? producto[5] : producto[4]}</p>
+                        <p>Precio: $${producto[2] == 'S' ? producto[5] : producto[4]}</p>
                     `;
                     
                     // Inserta el contenido en el div
