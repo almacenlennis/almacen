@@ -40,28 +40,52 @@
             padding: 20px;
         }
         .intro {
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Para que el texto y la imagen estén a los lados */
-            text-align: left;
+            text-align: center;
             margin: 20px 0;
         }
-        .intro h2 {
-            flex-basis: 100%; /* Para que el título ocupe todo el ancho */
-            text-align: center;
-            margin-bottom: 20px;
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta la cantidad de columnas automáticamente */
+            gap: 20px; /* Espacio entre productos */
+            justify-items: center; /* Centra los productos */
         }
-        .intro p {
-            flex-basis: 50%; /* Ancho del texto */
-            font-size: 1rem;
-            color: #555;
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 100%; /* El ancho ahora será determinado por el contenedor */
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .intro img {
-            flex-basis: 40%; /* Ancho de la imagen */
+
+        .product:hover {
+            transform: scale(1.07);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .product img {
             max-width: 100%;
             height: auto;
-            margin-left: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            border-radius: 10px;
         }
+
+        .product h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .product p {
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+        }
+
         footer {
             text-align: center;
             padding: 20px 0;
@@ -101,8 +125,9 @@
             <h2>Sobre Nosotros</h2>
             <p>Somos un pequeño negocio local comprometido con brindarte una experiencia excepcional.
                 En nuestro espacio, nos esforzamos por satisfacer todas tus necesidades ofreciendo productos de calidad y un servicio personalizado.
-                Visítanos y descubre un lugar donde encontrarás todo lo que buscas en un solo sitio.</p>
-            <img src="quienesSomos.svg" alt="Logotipo">
+                Visítanos y descubre un lugar donde encontrarás todo lo que buscas en un solo sitio</p>
+            <img src="quienesSomos.svg" alt="Logotipo" style="width: 50%; height: auto;">
+
         </section>
         <section id="productos" class="intro">
             <h2>Nuestros Productos</h2>
